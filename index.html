@@ -138,8 +138,49 @@
       text-shadow: 0 3px 12px rgba(0,0,0,.45);
     }
 
+    .hero-brand-lockup {
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+
+    .hero-brand-name {
+      color: #fff;
+      font-size: clamp(2.2rem, 5vw, 3.3rem);
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 6px 24px rgba(0,0,0,.38);
+    }
+
+    .hero-brand-sub {
+      color: rgba(255,255,255,.95);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: .5rem;
+      text-shadow: 0 4px 18px rgba(0,0,0,.32);
+    }
+
+    .hero-top-strip {
+      width: min(1100px, 100%);
+      margin: 0 auto 1.35rem;
+      padding: .9rem 1.2rem;
+      border-top: 1px solid rgba(143,162,240,.45);
+      border-bottom: 1px solid rgba(143,162,240,.45);
+      background: linear-gradient(90deg, rgba(39,59,146,.82) 0%, rgba(52,78,187,.9) 50%, rgba(39,59,146,.82) 100%);
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: .8px;
+      font-size: clamp(.72rem, 1.6vw, 1rem);
+      line-height: 1.45;
+      box-shadow: 0 14px 32px rgba(0,0,0,.22);
+    }
+
     .hero-info-lines {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.1rem;
       text-align: center;
       max-width: 980px;
       margin-left: auto;
@@ -152,7 +193,7 @@
       font-weight: 600;
       letter-spacing: .5px;
       text-shadow: 0 2px 8px rgba(0,0,0,.5);
-      margin: .3rem 0;
+      margin: .28rem 0;
       line-height: 1.5;
     }
 
@@ -169,6 +210,18 @@
     .hero-contact {
       opacity: .82;
       font-size: .88rem !important;
+    }
+
+    .hero-mid-services {
+      max-width: 980px;
+      margin: .8rem auto 1.4rem;
+      color: #dbe4ff;
+      font-size: clamp(.82rem, 1.6vw, 1rem);
+      font-weight: 700;
+      letter-spacing: .85px;
+      line-height: 1.55;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
 
     .hero-contact a {
@@ -551,7 +604,24 @@
     }
 
     .pricing-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 2rem;
+      align-items: stretch;
+    }
+
+    .pricing-grid.two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-grid.three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 2rem;
     }
 
@@ -584,6 +654,7 @@
       background: var(--panel-strong);
       position: relative;
       overflow: hidden;
+      min-width: 0;
     }
 
     .non-member-grid .price-card:nth-child(4) {
@@ -619,6 +690,8 @@
 
     .price-card-inner {
       transition: transform .3s ease;
+      text-align: center;
+      height: 100%;
     }
 
     .credential-card h3,
@@ -931,6 +1004,41 @@
       margin-bottom: 1rem;
     }
 
+    .pricing-highlight {
+      max-width: 1120px;
+      margin: 0 auto 2.2rem;
+      display: grid;
+      grid-template-columns: 1.2fr .7fr .7fr;
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .pricing-main-copy {
+      text-align: center;
+    }
+
+    .pricing-main-copy h3 {
+      font-size: 1.15rem;
+      margin-bottom: .8rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .pricing-main-copy ul {
+      list-style: none;
+    }
+
+    .pricing-main-copy li {
+      padding: .4rem 0;
+      color: #e5e7eb;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .pricing-main-copy li:last-child {
+      border-bottom: none;
+    }
+
     .note-strip {
       margin-top: 2rem;
       background: rgba(255,255,255,.08);
@@ -1193,12 +1301,110 @@
       line-height: 1.7;
     }
 
-    footer {
+    .site-footer {
       background: #090d15;
       color: #d1d5db;
-      text-align: center;
       padding: 1.8rem 1rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 140px 1fr 180px;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logo img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .footer-copy {
+      text-align: center;
+      line-height: 1.8;
       font-size: .95rem;
+    }
+
+    .footer-copy a {
+      color: #fff;
+    }
+
+    .footer-link-wrap {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .footer-policy-btn {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: .9rem 1.15rem;
+      background: rgba(255,255,255,.04);
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .footer-policy-btn:hover {
+      background: rgba(39,59,146,.24);
+      border-color: rgba(143,162,240,.45);
+      transform: translateY(-2px);
+    }
+
+    .faq-page {
+      position: fixed;
+      inset: 0;
+      z-index: 2500;
+      display: none;
+      overflow-y: auto;
+      background:
+        linear-gradient(rgba(7,12,22,.86), rgba(7,12,22,.92)),
+        url('./Photo Apr 09 2026, 9 41 20 PM (10).jpg') center/cover no-repeat;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .faq-page.active {
+      display: block;
+    }
+
+    .faq-page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .faq-page-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-close {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      border-radius: 999px;
+      padding: .85rem 1.1rem;
+      cursor: pointer;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
     }
 
     @media (max-width: 1200px) {
@@ -1212,6 +1418,10 @@
         grid-column: auto;
         justify-self: stretch;
       }
+      .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pricing-highlight { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-link-wrap { justify-content: center; }
     }
 
     @media (max-width: 992px) {
@@ -1233,7 +1443,11 @@
       .pricing-content, .section { padding-left: 1rem; padding-right: 1rem; }
       .credentials-grid,
       .cards-grid,
-      .non-member-grid { grid-template-columns: 1fr; }
+      .non-member-grid,
+      .pricing-grid,
+      .pricing-grid.two-col,
+      .pricing-grid.three-col,
+      .faq-grid { grid-template-columns: 1fr; }
       .non-member-grid .price-card:nth-child(4),
       .non-member-grid .price-card:nth-child(5) {
         grid-column: auto;
@@ -1257,6 +1471,7 @@
       .price-card:hover .price-card-inner {
         transform: none;
       }
+      .hero-top-strip { padding: .8rem .8rem; }
     }
 
     @media (max-width: 560px) {
@@ -1295,20 +1510,24 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <div class="hero-kicker">BFP Collective</div>
+      <div class="hero-brand-lockup">
+        <div class="hero-brand-name">BFP Collective</div>
+        <div class="hero-brand-sub">Bernardi Fitness &amp; Performance LLC</div>
+      </div>
+
+      <div class="hero-top-strip">Basketball Training &bull; Hybrid Performance &amp; Fitness Coaching &bull; Personal Training</div>
 
       <div class="hero-info-lines">
-        <p class="hero-services">Bernardi Fitness &amp; Performance LLC</p>
-        <p class="hero-services">Basketball Training &bull; Hybrid Performance &amp; Fitness Coaching &bull; Personal Training</p>
         <p class="hero-location">Coconut Creek, FL &nbsp;|&nbsp; Broward County &nbsp;|&nbsp; South Florida</p>
         <p class="hero-contact">BFPCollective.com &nbsp;|&nbsp; <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a> &nbsp;|&nbsp; <a href="tel:7188875723">718-887-5723</a></p>
-        <p class="hero-services">Basketball Development &bull; Hybrid Fitness &bull; Athlete Strength &amp; Conditioning &bull; In-Person &amp; Online Coaching</p>
       </div>
 
       <h1>
         <span class="hero-blue">Train With Intent.</span>
         <span class="hero-white"> Track Progress. Adjust When Needed.</span>
       </h1>
+
+      <div class="hero-mid-services">Basketball Development &bull; Hybrid Fitness &bull; Athlete Strength &amp; Conditioning &bull; In-Person &amp; Online Coaching</div>
 
       <div class="cta-buttons">
         <a href="#pricing-faq" class="cta-button">View Training &amp; Pricing</a>
@@ -1557,22 +1776,21 @@
         <p>Skill, conditioning, confidence, and game understanding. All levels.</p>
       </div>
 
-      <div class="price-card" style="margin-bottom:1.5rem;">
-        <div class="price-card-inner">
-          <h3>What It Includes (Depending On The Athlete)</h3>
-          <ul>
-            <li>Shooting mechanics and movement shooting with and without the ball</li>
-            <li>Ball handling, coordination &amp; proper footwork</li>
-            <li>Finishing and scoring efficiency</li>
-            <li>Offensive and defensive reads</li>
-            <li>Conditioning and athletic performance</li>
-            <li>Basketball IQ and decision making</li>
-            <li>Game-like repetition and learning to play with physicality</li>
-          </ul>
+      <div class="pricing-highlight">
+        <div class="price-card pricing-main-copy">
+          <div class="price-card-inner">
+            <h3>What It Includes (Depending On The Athlete)</h3>
+            <ul>
+              <li>Shooting mechanics and movement shooting with and without the ball</li>
+              <li>Ball handling, coordination &amp; proper footwork</li>
+              <li>Finishing and scoring efficiency</li>
+              <li>Offensive and defensive reads</li>
+              <li>Conditioning and athletic performance</li>
+              <li>Basketball IQ and decision making</li>
+              <li>Game-like repetition and learning to play with physicality</li>
+            </ul>
+          </div>
         </div>
-      </div>
-
-      <div class="pricing-grid">
         <div class="price-card"><div class="price-card-inner"><h3>60-Minute Session</h3><div class="price-value">$65</div></div></div>
         <div class="price-card"><div class="price-card-inner"><h3>Extended 90-Minute Session</h3><div class="price-value">$90</div></div></div>
       </div>
@@ -1669,11 +1887,13 @@
         <p>Limited spots (Travel fee may apply). Strength, conditioning, athleticism, body composition, and general fitness.</p>
       </div>
       <div class="pricing-grid">
-        <div class="price-card"><div class="price-card-inner"><h3>60-Minute Session</h3><div class="price-value">$75</div></div></div>
         <div class="price-card"><div class="price-card-inner"><h3>4 Sessions</h3><div class="price-value">$275</div><p class="price-sub">Intro and assessment</p></div></div>
         <div class="price-card"><div class="price-card-inner"><h3>8 Sessions</h3><div class="price-value">$525</div><p class="price-sub">Consistent development</p></div></div>
         <div class="price-card"><div class="price-card-inner"><h3>12 Sessions</h3><div class="price-value">$800</div><p class="price-sub">Full transformation cycle</p></div></div>
         <div class="price-card"><div class="price-card-inner"><h3>20 Sessions</h3><div class="price-value">$1,250</div><p class="price-sub">High commitment development</p></div></div>
+      </div>
+      <div class="pricing-grid two-col">
+        <div class="price-card"><div class="price-card-inner"><h3>60-Minute Session</h3><div class="price-value">$75</div></div></div>
       </div>
       <div class="price-card" style="margin-bottom:2rem;">
         <div class="price-card-inner">
@@ -1690,7 +1910,7 @@
       <div class="subsection-head">
         <h3>Online</h3>
       </div>
-      <div class="pricing-grid">
+      <div class="pricing-grid two-col">
         <div class="price-card">
           <div class="price-card-inner">
             <h3>Basketball Athlete Development Consultation</h3>
@@ -1717,20 +1937,6 @@
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="subsection-head">
-        <h3>Policies &amp; FAQ</h3>
-      </div>
-      <div class="pricing-grid">
-        <div class="policy-card"><h3>Cancellation</h3><ul><li>Sessions cancelled under 24 hours may result in loss of session credit.</li><li>Weather or trainer cancellations are always credited back.</li></ul></div>
-        <div class="policy-card"><h3>Siblings</h3><ul><li>Siblings may share a private session within the same scheduled time.</li></ul></div>
-        <div class="policy-card"><h3>Guests</h3><ul><li>Private clients may bring additional athletes for a small guest fee of $20 per guest.</li><li>Larger groups may require small group pricing.</li></ul></div>
-        <div class="policy-card"><h3>Packages</h3><ul><li>All packages expire 60 days from purchase date.</li><li>Package athletes receive additional development support — see Package Athlete Benefits.</li></ul></div>
-        <div class="policy-card"><h3>Teams</h3><ul><li>Team training booked separately. Contact Brian directly for scheduling and pricing.</li></ul></div>
-        <div class="policy-card"><h3>Adult Performance Training</h3><ul><li>Limited spots available. Contact Brian to check availability.</li></ul></div>
-        <div class="policy-card"><h3>Where are sessions held?</h3><ul><li>Private and public outdoor courts in Coconut Creek - Broward County.</li><li>Location may be subject to change.</li></ul></div>
-        <div class="policy-card"><h3>Are you available to travel?</h3><ul><li>Yes! Contact Brian for travel options and pricing.</li><li>I will travel anywhere in the U.S.</li></ul></div>
       </div>
 
       <div class="note-strip">
@@ -1849,9 +2055,44 @@
     </div>
   </div>
 
-  <footer>
-    BFP Collective &mdash; Basketball Training, Performance Coaching, Personal Training, and Online Support.
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./2.jpg" alt="BFP Collective logo">
+      </div>
+      <div class="footer-copy">
+        <div><strong>BFP Collective</strong> | Basketball &amp; Performance Development Training</div>
+        <div>Train With Intent. Track Progress. Adjust When Needed. | #WhatsNext</div>
+        <div>BFPCollective.com | <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a> | 718-887-5723 | Coconut Creek, FL</div>
+        <div>Bernardi Fitness and Performance LLC</div>
+      </div>
+      <div class="footer-link-wrap">
+        <button type="button" class="footer-policy-btn" id="openFaqPage">Policies &amp; FAQ</button>
+      </div>
+    </div>
   </footer>
+
+  <div class="faq-page" id="faqPage" aria-hidden="true">
+    <div class="faq-page-inner">
+      <div class="faq-page-top">
+        <div>
+          <div class="section-label">Policies &amp; FAQ</div>
+          <h2 class="section-title">Policies, Scheduling &amp; Session Details</h2>
+        </div>
+        <button type="button" class="faq-close" id="closeFaqPage">Close</button>
+      </div>
+      <div class="faq-grid">
+        <div class="policy-card"><h3>Cancellation</h3><ul><li>Sessions cancelled under 24 hours may result in loss of session credit.</li><li>Weather or trainer cancellations are always credited back.</li></ul></div>
+        <div class="policy-card"><h3>Siblings</h3><ul><li>Siblings may share a private session within the same scheduled time.</li></ul></div>
+        <div class="policy-card"><h3>Guests</h3><ul><li>Private clients may bring additional athletes for a small guest fee of $20 per guest.</li><li>Larger groups may require small group pricing.</li></ul></div>
+        <div class="policy-card"><h3>Packages</h3><ul><li>All packages expire 60 days from purchase date.</li><li>Package athletes receive additional development support — see Package Athlete Benefits.</li></ul></div>
+        <div class="policy-card"><h3>Teams</h3><ul><li>Team training booked separately. Contact Brian directly for scheduling and pricing.</li></ul></div>
+        <div class="policy-card"><h3>Adult Performance Training</h3><ul><li>Limited spots available. Contact Brian to check availability.</li></ul></div>
+        <div class="policy-card"><h3>Where are sessions held?</h3><ul><li>Private and public outdoor courts in Coconut Creek - Broward County.</li><li>Location may be subject to change.</li></ul></div>
+        <div class="policy-card"><h3>Are you available to travel?</h3><ul><li>Yes! Contact Brian for travel options and pricing.</li><li>I will travel anywhere in the U.S.</li></ul></div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const slides = document.querySelectorAll('.pricing-slide');
@@ -1993,6 +2234,28 @@
     });
 
     updateWhatsappLink();
+
+    const faqPage = document.getElementById('faqPage');
+    const openFaqPage = document.getElementById('openFaqPage');
+    const closeFaqPage = document.getElementById('closeFaqPage');
+
+    function showFaqPage() {
+      faqPage.classList.add('active');
+      faqPage.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function hideFaqPage() {
+      faqPage.classList.remove('active');
+      faqPage.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    openFaqPage.addEventListener('click', showFaqPage);
+    closeFaqPage.addEventListener('click', hideFaqPage);
+    faqPage.addEventListener('click', (e) => {
+      if (e.target === faqPage) hideFaqPage();
+    });
   </script>
 </body>
 </html>
