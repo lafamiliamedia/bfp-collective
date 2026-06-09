@@ -138,42 +138,46 @@
       text-shadow: 0 3px 12px rgba(0,0,0,.45);
     }
 
-    .hero-marquee {
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      overflow: hidden;
-      margin-bottom: 1.25rem;
-      white-space: nowrap;
-      position: relative;
+    .hero-info-lines {
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
 
-    .hero-marquee-track {
-      display: inline-flex;
-      align-items: center;
-      gap: 1.4rem;
-      width: max-content;
-      min-width: max-content;
-      animation: heroMarqueeFull 24s linear infinite;
-      padding-left: 0;
-    }
-
-    .hero-marquee-track span {
+    .hero-info-lines p {
       color: #fff;
-      font-size: .96rem;
-      font-weight: 800;
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.5);
+      margin: .3rem 0;
+      line-height: 1.5;
+    }
+
+    .hero-services {
+      font-size: 1rem !important;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 10px rgba(0,0,0,.45);
-      flex: 0 0 auto;
+      letter-spacing: 1.5px;
     }
 
-    @keyframes heroMarqueeFull {
-      0% { transform: translateX(100vw); }
-      100% { transform: translateX(-100%); }
+    .hero-location {
+      opacity: .88;
     }
 
-    .hero h1 {
+    .hero-contact {
+      opacity: .82;
+      font-size: .88rem !important;
+    }
+
+    .hero-contact a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero-contact a:hover {
+      color: var(--accent-soft);
+    }
+
+     .hero h1 {
       position: relative;
       display: inline-block;
       font-size: 4.8rem;
@@ -451,6 +455,70 @@
     }
 
     .coaching-background ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-red);
+    }
+
+    
+    .about-me-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-sub-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-red);
+      margin-bottom: .75rem;
+    }
+
+    .about-me-section p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: .5rem;
+      line-height: 1.65;
+    }
+
+    .playing-background {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem;
+    }
+
+    .playing-background h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+    }
+
+    .playing-background ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .playing-background ul li {
+      padding: .45rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      color: var(--text);
+      font-size: .97rem;
+    }
+
+    .playing-background ul li::before {
       content: '';
       position: absolute;
       left: 0;
@@ -1186,7 +1254,6 @@
       .section-title { font-size: 1.7rem; }
       .price-value { font-size: 2.35rem; }
       .credential-card, .info-card, .policy-card, .price-card, .contact-card { padding: 1.3rem; }
-      .hero-marquee-track span { font-size: .88rem; }
       .modal-actions { flex-direction: column; }
       .modal-btn { width: 100%; }
     }
@@ -1220,21 +1287,10 @@
     <div class="hero-content">
       <div class="hero-kicker">BFP Collective</div>
 
-      <div class="hero-marquee" aria-label="BFP header highlights">
-        <div class="hero-marquee-track">
-          <span>Basketball Training</span>
-          <span>Performance Coaching</span>
-          <span>Personal Training</span>
-          <span>Coconut Creek, FL</span>
-          <span>Broward County</span>
-          <span>In-Person & Online Coaching Available</span>
-          <span>Basketball Training</span>
-          <span>Performance Coaching</span>
-          <span>Personal Training</span>
-          <span>Coconut Creek, FL</span>
-          <span>Broward County</span>
-          <span>In-Person & Online Coaching Available</span>
-        </div>
+      <div class="hero-info-lines">
+        <p class="hero-services">Basketball Training &bull; Hybrid Performance &amp; Fitness Coaching &bull; Personal Training</p>
+        <p class="hero-location">Coconut Creek, FL &nbsp;|&nbsp; Broward County &nbsp;|&nbsp; South Florida</p>
+        <p class="hero-contact">BFPCollective.com &nbsp;|&nbsp; <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a> &nbsp;|&nbsp; <a href="tel:7188875723">718-887-5723</a></p>
       </div>
 
       <h1>
@@ -1281,8 +1337,25 @@
         <span class="eyebrow-pill">Built by Brian Bernardi</span>
       </div>
 
-      <p class="about-lead">
-        Brian brings experience from Division 1 college basketball, coaching at the college level under Hall of Fame and NBA coaches, professional play in Europe, and performance coaching — all applied to help athletes and individuals train with structure, purpose, and accountability.</p>
+      <div class="about-me-section">
+        <h3 class="about-sub-heading">About Me</h3>
+        <p>Former Division I and professional basketball player with 20+ years of experience at all levels.</p>
+        <p>Current basketball, athletic performance and hybrid/general fitness coach.</p>
+      </div>
+
+      <div class="playing-background">
+        <h3>Playing Background</h3>
+        <ul>
+          <li>5 years Division I basketball</li>
+          <li>SMU &mdash; Hall of Fame Coach Larry Brown, NBA PG Eric Snow, NBA player George Lynch</li>
+          <li>Hofstra University &mdash; Coach Joe Mihalich (Niagara Hall of Fame), NBA Champion Speedy Claxton, Notre Dame assistant Mike Farrelly</li>
+          <li>1,300+ career college points</li>
+          <li>Top 5 all-time 3PT shooter at Hofstra University (in only 3 seasons)</li>
+          <li>Professional basketball &mdash; Czech Republic and Georgia (top division leagues)</li>
+          <li>Amateur basketball &mdash; Germany, Netherlands, and Belgium under USF Head Coach Jay Duncan</li>
+          <li>Competitive functional fitness racer &mdash; 1:14:46, Pro Men category</li>
+        </ul>
+      </div>
 
       <div class="coaching-background">
         <h3>Coaching Background</h3>
@@ -1374,23 +1447,20 @@
       </div>
 
       <div class="services-grid">
-        <article class="service-item left-blur" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (9).jpg');">
-          <div class="service-overlay">
-            <div class="service-label">Basketball Training (All Levels)</div>
-            <h3 class="service-title">For Athletes Serious About Improving Skill, Performance, And Understanding The Game</h3>
-            <p>Built for players and coaches who want basketball development with structure and purpose.</p>
-            <ul class="service-features">
-              <li>Youth & teen development</li>
-              <li>High school athletes</li>
-              <li>College & professional players</li>
-              <li>Adults looking to improve</li>
-              <li>Coaches looking for team training</li>
-              <li><strong>Focus Areas:</strong> Shooting mechanics + skill development</li>
-              <li>Game reads, spacing, and decision-making</li>
-              <li>Footwork, coordination, movement efficiency</li>
-              <li>Defense, finishing, and physicality</li>
-            </ul>
-          </div>
+        <article class="service-card">
+          <div class="service-tag">Basketball Training (All Levels)</div>
+          <h3>For Athletes Serious About Improving Skill, Performance, And Understanding The Game</h3>
+          <p>Skill, conditioning, confidence, and game understanding. All levels.</p>
+          <p style="font-weight:600; margin-top:.5rem; margin-bottom:.35rem;">What it includes (depending on the athlete):</p>
+          <ul>
+            <li>Shooting mechanics and movement shooting with and without the ball</li>
+            <li>Ball handling, coordination &amp; proper footwork</li>
+            <li>Finishing and scoring efficiency</li>
+            <li>Offensive and defensive reads</li>
+            <li>Conditioning and athletic performance</li>
+            <li>Basketball IQ and decision making</li>
+            <li>Game-like repetition and learning to play with physicality</li>
+          </ul>
         </article>
 
         <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 10 11 54 AM.jpg');">
@@ -1539,7 +1609,7 @@
       <div class="non-member-grid">
         <div class="price-card">
           <div class="price-card-inner">
-            <h3>1-on-1 Basketball Training</h3>
+            <h3>Private Basketball Training</h3>
             <div class="price-value">$65</div>
             <div class="price-sub">Per session — 60 minutes</div>
             <div class="price-sub" style="margin-top:.4rem">Extended 90-min session — <strong>$90</strong></div>
