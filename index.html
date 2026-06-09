@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BFP Collective - Performance Training</title>
-
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --primary-blue: #273b92;
-      --primary-blue-dark: #1e2e74;
-      --dark-bg: #05070c;
-      --dark-surface: #0f172a;
+      --primary-red: #273b92;
+      --primary-red-dark: #1e2e74;
+      --dark-bg: #0b1220;
+      --dark-surface: #111827;
       --panel: rgba(255,255,255,.07);
-      --panel-strong: rgba(9,14,24,.78);
+      --panel-strong: rgba(17,24,39,.58);
       --panel-soft: rgba(255,255,255,.05);
       --border: rgba(255,255,255,.12);
       --border-soft: rgba(255,255,255,.08);
@@ -26,7 +22,6 @@
       --soft: #9ca3af;
       --accent-soft: #8fa2f0;
       --shadow: 0 18px 40px rgba(0,0,0,.28);
-      --shadow-soft: 0 14px 34px rgba(0,0,0,.22);
       --radius: 18px;
       --radius-sm: 14px;
       --max: 1240px;
@@ -36,14 +31,15 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Satoshi', Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #fff;
       color: #111827;
       line-height: 1.6;
-      letter-spacing: .01em;
     }
 
-    body.modal-open { overflow: hidden; }
+    body.modal-open {
+      overflow: hidden;
+    }
 
     img, video { max-width: 100%; display: block; }
     a { text-decoration: none; }
@@ -88,14 +84,14 @@
       color: #fff;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.1px;
-      font-size: .92rem;
+      letter-spacing: 1px;
+      font-size: .94rem;
       text-shadow: 0 2px 10px rgba(0,0,0,.45);
-      transition: color .3s ease, opacity .3s ease;
+      transition: color .3s ease;
       white-space: nowrap;
     }
 
-    .nav-links a:hover { color: var(--accent-soft); }
+    .nav-links a:hover { color: var(--primary-red); }
 
     .hero {
       position: relative;
@@ -122,7 +118,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(180deg, rgba(0,0,0,.24) 0%, rgba(0,0,0,.50) 46%, rgba(0,0,0,.82) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.44) 48%, rgba(0,0,0,.78) 100%);
     }
 
     .hero-content {
@@ -130,96 +126,129 @@
       z-index: 3;
       max-width: 1100px;
       width: 100%;
-      padding-top: 7.6rem;
-    }
-
-    .hero-brand {
-      margin-bottom: 1.15rem;
+      padding-top: 7.2rem;
     }
 
     .hero-kicker {
       color: #ffffff;
-      font-size: .98rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: .75rem;
-      text-shadow: 0 3px 12px rgba(0,0,0,.45);
-      font-weight: 800;
-    }
-
-    .hero-subbrand {
-      color: rgba(255,255,255,.88);
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: .04em;
-      text-shadow: 0 2px 10px rgba(0,0,0,.35);
-    }
-
-    .hero-info-card {
-      width: min(960px, 94%);
-      margin: 0 auto 1.5rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(9,14,24,.34) 0%, rgba(9,14,24,.56) 100%);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 18px;
-      box-shadow: 0 18px 42px rgba(0,0,0,.22);
-    }
-
-    .hero-info-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      color: #f3f4f6;
-      text-align: center;
-      line-height: 1.65;
-    }
-
-    .hero-info-row + .hero-info-row {
-      margin-top: .5rem;
-      padding-top: .5rem;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    .hero-info-primary {
-      font-size: .96rem;
-      font-weight: 800;
-      letter-spacing: .9px;
-      text-transform: uppercase;
-    }
-
-    .hero-info-focus {
       font-size: .95rem;
-      color: rgba(243,244,246,.95);
-      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 3px 12px rgba(0,0,0,.45);
     }
 
-    .hero-info-secondary,
-    .hero-info-contact {
-      font-size: .92rem;
-      color: rgba(243,244,246,.88);
-      font-weight: 500;
+    .hero-info-lines {
+      margin-bottom: 1.6rem;
+      text-align: center;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero-info-card a {
+    .hero-info-lines p {
       color: #fff;
-      font-weight: 700;
-      transition: color .3s ease;
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.5);
+      margin: .3rem 0;
+      line-height: 1.5;
     }
 
-    .hero-info-card a:hover { color: var(--accent-soft); }
+    .hero-services {
+      font-size: .98rem !important;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
 
-    .separator { opacity: .42; }
+    .hero-location {
+      opacity: .88;
+    }
+
+    .hero-contact {
+      opacity: .82;
+      font-size: .88rem !important;
+    }
+
+    .hero-contact a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero-contact a:hover {
+      color: var(--accent-soft);
+    }
+
+     .hero h1 {
+      position: relative;
+      display: inline-block;
+      font-size: 4.8rem;
+      line-height: 1.02;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      text-shadow: 0 5px 24px rgba(0,0,0,.45);
+    }
+
+    .hero h1 .hero-blue {
+      background: linear-gradient(
+        110deg,
+        #4a67e6 0%,
+        #5c78f0 18%,
+        #8fa2ff 32%,
+        #c6d2ff 50%,
+        #8fa2ff 68%,
+        #5c78f0 82%,
+        #4a67e6 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShineLetters 4.8s ease-in-out infinite;
+    }
+
+    .hero h1 .hero-white {
+      background: linear-gradient(
+        110deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,.98) 44%,
+        rgba(255,255,255,.45) 50%,
+        rgba(255,255,255,.98) 56%,
+        rgba(255,255,255,1) 62%,
+        rgba(255,255,255,1) 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShineLetters 4.8s ease-in-out infinite;
+    }
+
+    @keyframes textShineLetters {
+      0%   { background-position: 140% center; }
+      100% { background-position: -40% center; }
+    }
+
+    .hero p {
+      color: #f3f4f6;
+      font-size: 1.08rem;
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
 
     .cta-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.8rem;
+      margin-bottom: .2rem;
     }
 
     .cta-button {
@@ -228,37 +257,68 @@
       justify-content: center;
       min-width: 220px;
       padding: 1rem 2rem;
-      background: var(--primary-blue);
+      background: var(--primary-red);
       color: #fff;
-      border: 2px solid var(--primary-blue);
+      border: 2px solid var(--primary-red);
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all .3s ease;
       box-shadow: 0 10px 25px rgba(39,59,146,.24);
       cursor: pointer;
-      font-family: inherit;
     }
 
     .cta-button:hover {
-      background: var(--primary-blue-dark);
-      border-color: var(--primary-blue-dark);
+      background: var(--primary-red-dark);
+      border-color: var(--primary-red-dark);
       transform: translateY(-2px);
     }
 
     .cta-button.secondary {
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.24);
-      color: #fff;
+      background: transparent;
+      border-color: #273b92;
+      color: #273b92;
       box-shadow: none;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
     }
 
     .cta-button.secondary:hover {
-      background: var(--primary-blue);
-      border-color: var(--primary-blue);
+      background: #273b92;
+      color: #fff;
+    }
+
+    .ticker {
+      background: #0b0f17;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+      padding: .82rem 0;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .ticker-track span {
+      color: #f3f4f6;
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: 1.15px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-right: 2.2rem;
+    }
+
+    .ticker-track .dot {
+      color: var(--primary-red);
+      margin-right: 2.2rem;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .dark-section {
@@ -278,33 +338,46 @@
     }
 
     .section-intro {
-      max-width: 920px;
+      max-width: 840px;
       margin: 0 auto 3rem;
       text-align: center;
     }
 
     .section-label {
       color: #ffffff;
-      font-size: .88rem;
-      letter-spacing: 2.4px;
+      font-size: .9rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: .9rem;
-      font-weight: 700;
     }
 
     .section-title {
-      font-size: 2.55rem;
+      font-size: 2.7rem;
       line-height: 1.1;
-      font-weight: 900;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .6px;
+      letter-spacing: 1px;
       margin-bottom: 1rem;
     }
 
     .section-text {
       color: #e5e7eb;
-      font-size: 1.03rem;
+      font-size: 1.05rem;
       line-height: 1.9;
+    }
+
+    .eyebrow-pill {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .45rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(39,59,146,.85);
+      background: rgba(39,59,146,.12);
+      color: #ffffff;
+      font-size: .84rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
     .about-section {
@@ -327,73 +400,467 @@
     .about-section .container {
       position: relative;
       z-index: 2;
-      max-width: 1040px;
-      text-align: center;
     }
 
     .about-copy {
-      color: var(--text);
-      font-size: 1.02rem;
-      line-height: 1.85;
-      max-width: 860px;
-      margin: 0 auto .75rem;
+      max-width: 1180px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .panel-card {
-      margin-top: 1.4rem;
+    .about-lead {
+      max-width: 920px;
+      margin: 0 auto 2rem;
+      color: #e5e7eb;
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .credentials-grid,
+    .cards-grid,
+    .stack-grid,
+    .contact-grid,
+    .pricing-grid,
+    .services-grid,
+    .non-member-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .coaching-background {
+      margin-top: 2rem;
       background: rgba(255,255,255,.07);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius-sm);
-      padding: 1.6rem 2rem;
-      box-shadow: var(--shadow-soft);
-      text-align: left;
+      padding: 1.5rem 2rem;
     }
 
-    .panel-heading {
-      font-size: 1.05rem;
-      font-weight: 800;
+    .coaching-background h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent-soft);
-      margin-bottom: .9rem;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
     }
 
-    .panel-card ul {
+    .coaching-background ul {
       list-style: none;
       padding: 0;
     }
 
-    .panel-card ul li {
-      padding: .48rem 0 .48rem 1.25rem;
+    .coaching-background ul li {
+      padding: .45rem 0;
+      padding-left: 1.25rem;
       position: relative;
       color: var(--text);
-      font-size: .98rem;
-      line-height: 1.75;
+      font-size: .97rem;
     }
 
-    .panel-card ul li::before {
+    .coaching-background ul li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: .95rem;
+      top: 50%;
+      transform: translateY(-50%);
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--primary-blue);
+      background: var(--primary-red);
+    }
+
+    .about-me-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-sub-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-red);
+      margin-bottom: .75rem;
+    }
+
+    .about-me-section p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: .5rem;
+      line-height: 1.65;
+    }
+
+    .playing-background {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem;
+    }
+
+    .playing-background h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+    }
+
+    .playing-background ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .playing-background ul li {
+      padding: .45rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      color: var(--text);
+      font-size: .97rem;
+    }
+
+    .playing-background ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-red);
+    }
+
+    .credentials-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stack-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 1.5rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.08fr .92fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-bottom: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.7rem;
+    }
+
+    .non-member-grid {
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .credential-card,
+    .info-card,
+    .policy-card,
+    .price-card,
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .price-card {
+      background: var(--panel-strong);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .non-member-grid .price-card:nth-child(4) {
+      grid-column: 1 / 2;
+      justify-self: end;
+    }
+
+    .non-member-grid .price-card:nth-child(5) {
+      grid-column: 2 / 3;
+      justify-self: center;
+    }
+
+    .schedule-hover-cta {
+      position: absolute;
+      left: 50%;
+      bottom: 1.25rem;
+      transform: translate(-50%, 20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .3s ease;
+      z-index: 3;
+    }
+
+    .price-card:hover .schedule-hover-cta {
+      opacity: 1;
+      transform: translate(-50%, 0);
+      pointer-events: auto;
+    }
+
+    .price-card:hover .price-card-inner {
+      transform: translateY(-8px);
+    }
+
+    .price-card-inner {
+      transition: transform .3s ease;
+    }
+
+    .credential-card h3,
+    .info-card h3,
+    .policy-card h3,
+    .price-card h3,
+    .contact-card h3 {
+      color: white;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: .95rem;
+      line-height: 1.35;
+    }
+
+    .credential-card ul,
+    .policy-card ul,
+    .price-card ul,
+    .service-features,
+    .contact-list {
+      list-style: none;
+    }
+
+    .credential-card li,
+    .policy-card li,
+    .price-card li,
+    .contact-list li,
+    .service-features li {
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    .credential-card li,
+    .policy-card li,
+    .price-card li,
+    .contact-list li {
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .credential-card li:last-child,
+    .policy-card li:last-child,
+    .price-card li:last-child,
+    .contact-list li:last-child,
+    .service-features li:last-child { border-bottom: none; }
+
+    .gallery {
+      padding: 42px 2rem 100px;
+    }
+
+    .gallery-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      columns: 3 260px;
+      column-gap: 1rem;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+      background: rgba(15,23,42,.72);
+      box-shadow: 0 14px 32px rgba(0,0,0,.28);
+    }
+
+    .gallery-item img { width: 100%; height: auto; }
+
+    .impact-banner {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, #070b13 0%, #0b1220 48%, #09111d 100%);
+      padding: 1.5rem 0 1.7rem;
+      margin-top: -18px;
+      margin-bottom: -10px;
+      border-top: 2px solid #273b92;
+      border-bottom: 2px solid #273b92;
+    }
+
+    .impact-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #ffffff;
+      font-size: clamp(2.1rem, 7vw, 5.7rem);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 0 1rem;
+      background: linear-gradient(
+        110deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,1) 38%,
+        rgba(255,255,255,.98) 44%,
+        rgba(255,255,255,.4) 50%,
+        rgba(255,255,255,.98) 56%,
+        rgba(255,255,255,1) 62%,
+        rgba(255,255,255,1) 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: impactTextShine 5.2s ease-in-out infinite;
+    }
+
+    .impact-text .accent {
+      background: linear-gradient(
+        110deg,
+        #273b92 0%,
+        #273b92 38%,
+        #8fa2f0 50%,
+        #273b92 62%,
+        #273b92 100%
+      );
+      background-size: 220% auto;
+      background-position: 140% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: impactTextShine 5.2s ease-in-out infinite;
+    }
+
+    @keyframes impactTextShine {
+      0%   { background-position: 140% center; }
+      100% { background-position: -40% center; }
+    }
+
+    .info-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.045) 100%);
+    }
+
+    .info-card .num {
+      color: #273b92;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: .9rem;
+    }
+
+    .info-card p,
+    .contact-card p {
+      color: #e5e7eb;
+      line-height: 1.82;
+    }
+
+    .services {
+      background: #0f172a;
+      color: white;
+    }
+
+    .service-item {
+      position: relative;
+      min-height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .service-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.20) 28%, rgba(0,0,0,.84) 100%);
+    }
+
+    .service-item.left-blur::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(8,15,28,.88) 0%, rgba(8,15,28,.62) 22%, rgba(8,15,28,.12) 54%, rgba(8,15,28,0) 72%);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+      pointer-events: none;
+    }
+
+    .service-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 2rem;
+      background: linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,.18) 35%, rgba(17,24,39,.64) 100%);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .service-label {
+      color: #8fa2f0;
+      font-size: .78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: .65rem;
+    }
+
+    .service-title {
+      color: white;
+      font-size: 1.48rem;
+      line-height: 1.18;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: .85rem;
+    }
+
+    .service-overlay > p {
+      color: #f3f4f6;
+      line-height: 1.72;
+      margin-bottom: 1rem;
+    }
+
+    .service-features li {
+      padding: .42rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      font-size: .96rem;
     }
 
     .pricing-section {
       position: relative;
       overflow: hidden;
       background: #000;
+      min-height: 1280px;
     }
 
-    .pricing-base {
+    .pricing-section::after {
+      content: "";
       position: absolute;
       inset: 0;
-      z-index: 0;
-      background:
-        linear-gradient(180deg, rgba(3,5,9,1) 0%, rgba(5,7,12,1) 40%, rgba(5,7,12,1) 100%);
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.60) 38%, rgba(0,0,0,.82) 72%, rgba(0,0,0,.95) 100%);
+      pointer-events: none;
     }
 
     .pricing-slideshow {
@@ -417,9 +884,8 @@
     .pricing-overlay {
       position: absolute;
       inset: 0;
-      z-index: 2;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.76) 35%, rgba(0,0,0,.82) 70%, rgba(0,0,0,.90) 100%);
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.42) 50%, rgba(0,0,0,.55) 100%);
     }
 
     .pricing-content {
@@ -427,109 +893,23 @@
       z-index: 3;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 110px 2rem 130px;
+      padding: 110px 2rem;
       color: white;
-    }
-
-    .pricing-grid,
-    .contact-grid,
-    .policy-grid,
-    .two-col-grid,
-    .three-col-grid,
-    .consult-grid,
-    .footer-contact-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .pricing-grid,
-    .three-col-grid,
-    .consult-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .two-col-grid,
-    .contact-grid,
-    .footer-contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card,
-    .policy-card,
-    .contact-card,
-    .table-card,
-    .consult-card {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 1.6rem;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
-    }
-
-    .card h3,
-    .policy-card h3,
-    .contact-card h3,
-    .table-card h3,
-    .consult-card h3 {
-      color: white;
-      font-size: 1.02rem;
-      text-transform: uppercase;
-      letter-spacing: .8px;
-      margin-bottom: .95rem;
-      line-height: 1.35;
-      font-weight: 800;
-    }
-
-    .card p,
-    .policy-card p,
-    .contact-card p,
-    .table-card p,
-    .consult-card p {
-      color: #e5e7eb;
-      line-height: 1.8;
-    }
-
-    .detail-list,
-    .contact-list,
-    .benefits-list,
-    .policy-list {
-      list-style: none;
-      margin-top: .85rem;
-    }
-
-    .detail-list li,
-    .contact-list li,
-    .benefits-list li,
-    .policy-list li {
-      color: #e5e7eb;
-      line-height: 1.72;
-      padding: .58rem 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .detail-list li:last-child,
-    .contact-list li:last-child,
-    .benefits-list li:last-child,
-    .policy-list li:last-child {
-      border-bottom: none;
     }
 
     .subsection-head {
       text-align: center;
-      max-width: 880px;
+      max-width: 780px;
       margin: 0 auto 2rem;
     }
 
     .subsection-head h3 {
       color: white;
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       text-transform: uppercase;
       line-height: 1.15;
       margin-bottom: .7rem;
       letter-spacing: 1px;
-      font-weight: 900;
     }
 
     .subsection-head p {
@@ -538,10 +918,10 @@
     }
 
     .price-value {
-      color: #8fa2f0;
-      font-size: 2.4rem;
+      color: #273b92;
+      font-size: 2.8rem;
       font-weight: 900;
-      margin-bottom: .7rem;
+      margin-bottom: .8rem;
       text-shadow: 0 4px 12px rgba(0,0,0,.25);
     }
 
@@ -551,41 +931,20 @@
       margin-bottom: 1rem;
     }
 
-    .mini-note {
-      margin-top: .5rem;
-      font-size: .84rem;
-      color: rgba(229,231,235,.82);
-      line-height: 1.65;
+    .note-strip {
+      margin-top: 2rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      text-align: center;
+      color: #f3f4f6;
+      line-height: 1.75;
+      box-shadow: var(--shadow);
     }
 
-    .table-card table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: .8rem;
-    }
-
-    .table-card th,
-    .table-card td {
-      text-align: left;
-      padding: .8rem .6rem;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      color: #e5e7eb;
-      vertical-align: top;
-      font-size: .95rem;
-      line-height: 1.55;
-    }
-
-    .table-card th {
-      color: #fff;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 800;
-    }
-
-    .table-card tr:last-child td { border-bottom: none; }
-
-    .inline-mail-link {
+    .inline-mail-link,
+    .action-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -593,18 +952,19 @@
       border-radius: 999px;
       border: 2px solid rgba(39,59,146,.9);
       background: transparent;
-      color: #8fa2f0;
-      font-weight: 800;
+      color: #273b92;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .8px;
       cursor: pointer;
       transition: all .25s ease;
+      box-shadow: none;
       appearance: none;
       -webkit-appearance: none;
-      font-family: inherit;
     }
 
-    .inline-mail-link:hover {
+    .inline-mail-link:hover,
+    .action-link:hover {
       background: #273b92;
       color: #fff;
       transform: translateY(-2px);
@@ -640,7 +1000,6 @@
       font-size: .98rem;
       cursor: pointer;
       transition: transform .25s ease, background .25s ease, border-color .25s ease;
-      font-family: inherit;
     }
 
     .contact-action-button:hover {
@@ -691,7 +1050,9 @@
       -webkit-backdrop-filter: blur(10px);
     }
 
-    .contact-modal.active { display: flex; }
+    .contact-modal.active {
+      display: flex;
+    }
 
     .modal-panel {
       width: min(760px, 100%);
@@ -718,8 +1079,7 @@
       line-height: 1.15;
       text-transform: uppercase;
       margin-bottom: .35rem;
-      color: #8fa2f0;
-      font-weight: 900;
+      color: #273b92;
     }
 
     .modal-title p {
@@ -737,7 +1097,6 @@
       font-size: 1.4rem;
       cursor: pointer;
       flex: 0 0 auto;
-      font-family: inherit;
     }
 
     .modal-grid {
@@ -752,7 +1111,9 @@
       gap: .45rem;
     }
 
-    .field.full { grid-column: 1 / -1; }
+    .field.full {
+      grid-column: 1 / -1;
+    }
 
     .field label {
       font-size: .9rem;
@@ -762,7 +1123,8 @@
     }
 
     .field input,
-    .field textarea {
+    .field textarea,
+    .field select {
       width: 100%;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.12);
@@ -804,7 +1166,6 @@
       letter-spacing: .7px;
       cursor: pointer;
       transition: transform .25s ease, opacity .25s ease, background .25s ease;
-      font-family: inherit;
     }
 
     .modal-btn:hover { transform: translateY(-2px); }
@@ -840,13 +1201,24 @@
       font-size: .95rem;
     }
 
-    @media (max-width: 992px) {
-      .two-col-grid,
-      .contact-grid,
-      .footer-contact-grid,
-      .modal-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 1200px) {
+      .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .non-member-grid {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
       }
+      .non-member-grid .price-card:nth-child(4),
+      .non-member-grid .price-card:nth-child(5) {
+        grid-column: auto;
+        justify-self: stretch;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 3.4rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .modal-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -855,18 +1227,17 @@
       .logo img { height: 68px; }
       .nav-links { gap: 1rem; justify-content: center; }
       .hero-content { padding-top: 10rem; }
+      .hero h1 { font-size: 2.5rem; }
       .section-title { font-size: 2rem; }
+      .subsection-head h3 { font-size: 1.5rem; }
       .pricing-content, .section { padding-left: 1rem; padding-right: 1rem; }
-      .hero-info-card {
-        padding: .9rem 1rem;
-        border-radius: 16px;
-      }
-      .hero-info-primary,
-      .hero-info-focus,
-      .hero-info-secondary,
-      .hero-info-contact,
-      .hero-subbrand {
-        font-size: .86rem;
+      .credentials-grid,
+      .cards-grid,
+      .non-member-grid { grid-template-columns: 1fr; }
+      .non-member-grid .price-card:nth-child(4),
+      .non-member-grid .price-card:nth-child(5) {
+        grid-column: auto;
+        justify-self: stretch;
       }
       .whatsapp-float {
         width: 58px;
@@ -874,20 +1245,26 @@
         right: 16px;
         bottom: 16px;
       }
-      .table-card { overflow-x: auto; }
+      .schedule-hover-cta {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        pointer-events: auto;
+        position: static;
+        margin-top: 1rem;
+        left: auto;
+        bottom: auto;
+      }
+      .price-card:hover .price-card-inner {
+        transform: none;
+      }
     }
 
     @media (max-width: 560px) {
       .cta-buttons { flex-direction: column; width: 100%; }
       .cta-button { width: 100%; min-width: unset; }
       .section-title { font-size: 1.7rem; }
-      .price-value { font-size: 2.1rem; }
-      .card,
-      .policy-card,
-      .contact-card,
-      .table-card,
-      .consult-card,
-      .panel-card { padding: 1.3rem; }
+      .price-value { font-size: 2.35rem; }
+      .credential-card, .info-card, .policy-card, .price-card, .contact-card { padding: 1.3rem; }
       .modal-actions { flex-direction: column; }
       .modal-btn { width: 100%; }
     }
@@ -903,7 +1280,7 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#training-pricing">Training &amp; Pricing</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#membership">Membership</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -915,83 +1292,81 @@
       <source src="./6053511-hd_1920_1080_25fps.mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
-
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <div class="hero-brand">
-        <div class="hero-kicker">BFP Collective</div>
-        <div class="hero-subbrand">Bernardi Fitness &amp; Performance LLC</div>
+      <div class="hero-kicker">BFP Collective</div>
+
+      <div class="hero-info-lines">
+        <p class="hero-services">Bernardi Fitness &amp; Performance LLC</p>
+        <p class="hero-services">Basketball Training &bull; Hybrid Performance &amp; Fitness Coaching &bull; Personal Training</p>
+        <p class="hero-location">Coconut Creek, FL &nbsp;|&nbsp; Broward County &nbsp;|&nbsp; South Florida</p>
+        <p class="hero-contact">BFPCollective.com &nbsp;|&nbsp; <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a> &nbsp;|&nbsp; <a href="tel:7188875723">718-887-5723</a></p>
+        <p class="hero-services">Basketball Development &bull; Hybrid Fitness &bull; Athlete Strength &amp; Conditioning &bull; In-Person &amp; Online Coaching</p>
       </div>
 
-      <div class="hero-info-card">
-        <div class="hero-info-row hero-info-primary">
-          <span>Basketball Training</span>
-          <span class="separator">•</span>
-          <span>Hybrid Performance &amp; Fitness Coaching</span>
-          <span class="separator">•</span>
-          <span>Personal Training</span>
-        </div>
-
-        <div class="hero-info-row hero-info-secondary">
-          <span>Coconut Creek, FL</span>
-          <span class="separator">|</span>
-          <span>Broward County</span>
-          <span class="separator">|</span>
-          <span>South Florida</span>
-        </div>
-
-        <div class="hero-info-row hero-info-contact">
-          <span>BFPCollective.com</span>
-          <span class="separator">|</span>
-          <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a>
-          <span class="separator">|</span>
-          <a href="tel:7188875723">718-887-5723</a>
-        </div>
-
-        <div class="hero-info-row hero-info-focus">
-          <span>Basketball Development</span>
-          <span class="separator">•</span>
-          <span>Hybrid Fitness</span>
-          <span class="separator">•</span>
-          <span>Athlete Strength &amp; Conditioning</span>
-          <span class="separator">•</span>
-          <span>In-Person &amp; Online Coaching</span>
-        </div>
-      </div>
+      <h1>
+        <span class="hero-blue">Train With Intent.</span>
+        <span class="hero-white"> Track Progress. Adjust When Needed.</span>
+      </h1>
 
       <div class="cta-buttons">
-        <a href="#training-pricing" class="cta-button">View Training &amp; Pricing</a>
+        <a href="#pricing-faq" class="cta-button">View Training &amp; Pricing</a>
         <button type="button" class="cta-button secondary" data-open-contact="book-session">Book a Session</button>
       </div>
     </div>
   </section>
 
+  <div class="ticker" aria-label="BFP focus areas">
+    <div class="ticker-track">
+      <span>Basketball Training</span><span class="dot">•</span>
+      <span>Performance Coaching</span><span class="dot">•</span>
+      <span>Personal Training</span><span class="dot">•</span>
+      <span>HYROX</span><span class="dot">•</span>
+      <span>Online Coaching</span><span class="dot">•</span>
+      <span>Accountability</span><span class="dot">•</span>
+      <span>Basketball Training</span><span class="dot">•</span>
+      <span>Performance Coaching</span><span class="dot">•</span>
+      <span>Personal Training</span><span class="dot">•</span>
+      <span>HYROX</span><span class="dot">•</span>
+      <span>Online Coaching</span><span class="dot">•</span>
+      <span>Accountability</span><span class="dot">•</span>
+    </div>
+  </div>
+
   <section class="dark-section section about-section" id="about">
-    <div class="container">
+    <div class="container about-copy">
       <div class="section-intro">
         <div class="section-label">About</div>
-        <h2 class="section-title">About Me</h2>
-        <p class="about-copy">Former Division I and professional basketball player with 20+ years of experience at all levels.</p>
-        <p class="about-copy">Current basketball, athletic performance and hybrid/general fitness coach.</p>
+        <h2 class="section-title"><span style="color:#273b92;">BFP</span> Collective</h2>
+        <p class="section-text">
+          <span style="color:#273b92;">BFP</span> Collective (Bernardi Fitness & Performance LLC) is a structured coaching system for basketball players, athletes, and individuals who want clear direction, progression, and accountability.
+        </p>
+        <span class="eyebrow-pill">Built by Brian Bernardi</span>
       </div>
 
-      <div class="panel-card" style="margin-top:0;">
-        <div class="panel-heading">Playing Background</div>
+      <div class="about-me-section">
+        <h3 class="about-sub-heading">About Me</h3>
+        <p>Former Division I and professional basketball player with 20+ years of experience at all levels.</p>
+        <p>Current basketball, athletic performance and hybrid/general fitness coach.</p>
+      </div>
+
+      <div class="playing-background">
+        <h3>Playing Background</h3>
         <ul>
           <li>5 years Division I basketball</li>
-          <li>SMU — Hall of Fame Coach Larry Brown, NBA PG Eric Snow, NBA player George Lynch</li>
-          <li>Hofstra University — Coach Joe Mihalich (Niagara Hall of Fame), NBA Champion Speedy Claxton, Notre Dame assistant Mike Farrelly</li>
+          <li>SMU &mdash; Hall of Fame Coach Larry Brown, NBA PG Eric Snow, NBA player George Lynch</li>
+          <li>Hofstra University &mdash; Coach Joe Mihalich (Niagara Hall of Fame), NBA Champion Speedy Claxton, Notre Dame assistant Mike Farrelly</li>
           <li>1,300+ career college points</li>
           <li>Top 5 all-time 3PT shooter at Hofstra University (in only 3 seasons)</li>
-          <li>Professional basketball — Czech Republic and Georgia (top division leagues)</li>
-          <li>Amateur basketball — Germany, Netherlands, and Belgium under USF Head Coach Jay Duncan</li>
-          <li>Competitive functional fitness racer — 1:14:46, Pro Men category</li>
+          <li>Professional basketball &mdash; Czech Republic and Georgia (top division leagues)</li>
+          <li>Amateur basketball &mdash; Germany, Netherlands, and Belgium under USF Head Coach Jay Duncan</li>
+          <li>Competitive functional fitness racer &mdash; 1:14:46, Pro Men category</li>
         </ul>
       </div>
 
-      <div class="panel-card">
-        <div class="panel-heading">Coaching Background</div>
+      <div class="coaching-background">
+        <h3>Coaching Background</h3>
         <ul>
           <li>Youth, high school, college, professional and adult athlete coaching experience</li>
           <li>Basketball Coach at the high school and youth league levels</li>
@@ -1002,22 +1377,179 @@
     </div>
   </section>
 
-  <section class="pricing-section" id="training-pricing">
-    <div class="pricing-base"></div>
-
-    <div class="pricing-slideshow" aria-hidden="true">
-      <div class="pricing-slide active" style="background-image:url('./Photo Mar 27 2026, 10 12 39 AM.jpg');"></div>
-      <div class="pricing-slide" style="background-image:url('./Photo Mar 27 2026, 10 32 40 AM.jpg');"></div>
-      <div class="pricing-slide" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (10).jpg');"></div>
+  <section class="dark-section gallery">
+    <div class="section-intro">
+      <div class="section-label">Training Environment</div>
+      <h2 class="section-title" style="color:white;">Structured Training. Real Work. Real Progress.</h2>
+      <p class="section-text">
+        A training environment built around structure, progression, accountability, and doing what is needed to keep improving.
+      </p>
     </div>
 
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="./Photo Mar 27 2026, 11 22 34 AM.jpg" alt="Athlete training on rowing machine" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Apr 09 2026, 9 41 20 PM (9).jpg" alt="Basketball skill development session" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 11 54 AM.jpg" alt="Athletic performance training session" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 12 39 AM.jpg" alt="BFP training environment" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Mar 27 2026, 10 32 40 AM.jpg" alt="Hybrid conditioning and performance training" loading="lazy"></div>
+      <div class="gallery-item"><img src="./Photo Apr 09 2026, 9 41 20 PM (10).jpg" alt="Basketball athlete in competition setting" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="impact-banner" aria-label="Motivational line">
+    <div class="impact-text">SUCCESS, FAILURE, OR SETBACK? <span class="accent">#WHATSNEXT</span></div>
+  </section>
+
+  <section class="dark-section section">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-label">What It Takes</div>
+        <h2 class="section-title">I Want To Make A Real Difference And Help You Reach Your Goals.</h2>
+        <p class="section-text">Stay on track or adjust, but keep moving forward.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="num">01</div>
+          <h3>Structured Progressive Planning</h3>
+          <p>
+            Where is your current level, and what is needed to begin improving? If you do too little or keep doing the same thing, you don’t make progress. But if you do too much too soon, you risk injury, burnout, and setbacks. Training should be structured, progressive, and adjusted over time. We’ll help figure out what works best for you and your goals.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="num">02</div>
+          <h3>Discipline & Consistency</h3>
+          <p>
+            1–2 random workout sessions per week will not get you to where you want to be anytime soon. Let’s fully understand your goals, your “why,” and build a plan that works with your schedule and lifestyle. Real progress comes from consistency over time.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="num">03</div>
+          <h3>Community, Communication & Accountability</h3>
+          <p>
+            Be around like-minded people with similar goals who push each other to improve. <span style="color:#273b92;">BFP</span> Collective is more than workouts. It’s a team, a community, and an environment built around growth, communication, and accountability. We’ll help keep you on track and doing what’s needed to continue improving.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="num">04</div>
+          <h3>Belief</h3>
+          <p>
+            Believe that you can do great things and don’t be afraid to fail big. Too many people never fully pursue their goals, waste their talent, or hold themselves back before they even start. Let’s change that.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">Training Designed Around Real Progress</h2>
+        <p class="section-text">
+          Basketball training, athletic performance, adult fitness/HYROX, and online coaching — organized clearly while keeping the current look and feel of the page.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-item left-blur" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (9).jpg');">
+          <div class="service-overlay">
+            <div class="service-label">Basketball Training (All Levels)</div>
+            <h3 class="service-title">For Athletes Serious About Improving Skill, Performance, And Understanding The Game</h3>
+            <p>Skill, conditioning, confidence, and game understanding. All levels.</p>
+            <p style="font-weight:600; margin-top:.5rem; margin-bottom:.35rem;">What it includes (depending on the athlete):</p>
+            <ul class="service-features">
+              <li>Shooting mechanics and movement shooting with and without the ball</li>
+              <li>Ball handling, coordination &amp; proper footwork</li>
+              <li>Finishing and scoring efficiency</li>
+              <li>Offensive and defensive reads</li>
+              <li>Conditioning and athletic performance</li>
+              <li>Basketball IQ and decision making</li>
+              <li>Game-like repetition and learning to play with physicality</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 10 11 54 AM.jpg');">
+          <div class="service-overlay">
+            <div class="service-label">Athletic Performance Training</div>
+            <h3 class="service-title">For Athletes Who Want To Improve Strength, Speed, And Overall Performance</h3>
+            <p>Performance work for athletes who need progressive training, not random sessions.</p>
+            <ul class="service-features">
+              <li>Strength & conditioning</li>
+              <li>Speed, agility, & coordination</li>
+              <li>Endurance + hybrid training</li>
+              <li>Injury prevention + body development</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 11 22 34 AM.jpg');">
+          <div class="service-overlay">
+            <div class="service-label">Adult Fitness & HYROX Training (In-Person)</div>
+            <h3 class="service-title">Private 1-On-1 Coaching For Fitness And Performance</h3>
+            <p>In-person coaching for adults who want structure, accountability, and performance-focused fitness.</p>
+            <ul class="service-features">
+              <li>Strength + conditioning</li>
+              <li>Functional fitness</li>
+              <li>Endurance + HYROX-style training</li>
+              <li>Structured programming</li>
+              <li>Currently limited to 5 clients</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-item left-blur" style="background-image:url('./Photo Mar 27 2026, 10 32 40 AM.jpg');">
+          <div class="service-overlay">
+            <div class="service-label">Online Coaching (Basketball, General Fitness & HYROX)</div>
+            <h3 class="service-title">Structured Remote Coaching System</h3>
+            <p>Remote coaching with review, communication, updates, and adjustments built into the process.</p>
+            <ul class="service-features">
+              <li>Personalized training plan</li>
+              <li>Weekly updates + adjustments</li>
+              <li>Video/form review</li>
+              <li>Messaging support</li>
+              <li>Progress tracking</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="BFP membership and training ticker">
+    <div class="ticker-track">
+      <span>Elite Performance Membership</span><span class="dot">•</span>
+      <span>Performance Membership</span><span class="dot">•</span>
+      <span>Non-Member Training</span><span class="dot">•</span>
+      <span>Basketball</span><span class="dot">•</span>
+      <span>HYROX</span><span class="dot">•</span>
+      <span>Online Coaching</span><span class="dot">•</span>
+      <span>Elite Performance Membership</span><span class="dot">•</span>
+      <span>Performance Membership</span><span class="dot">•</span>
+      <span>Non-Member Training</span><span class="dot">•</span>
+      <span>Basketball</span><span class="dot">•</span>
+      <span>HYROX</span><span class="dot">•</span>
+      <span>Online Coaching</span><span class="dot">•</span>
+    </div>
+  </div>
+
+  <section class="pricing-section" id="pricing-faq">
+    <div class="pricing-slideshow">
+      <div class="pricing-slide active" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (10).jpg');"></div>
+      <div class="pricing-slide" style="background-image:url('./Photo Mar 27 2026, 10 32 40 AM.jpg');"></div>
+      <div class="pricing-slide" style="background-image:url('./Photo Apr 09 2026, 9 41 20 PM (9).jpg');"></div>
+    </div>
     <div class="pricing-overlay"></div>
 
     <div class="pricing-content">
-      <div class="section-intro">
-        <div class="section-label">Training &amp; Pricing (In-Person)</div>
-        <h2 class="section-title">Private, Group, Team, Adult Performance, And Online</h2>
-        <p class="section-text">Everything below is organized to match the requested structure, pricing, policies, and contact details.</p>
+      <div class="section-intro" id="membership">
+        <div class="section-label">Training &amp; Pricing</div>
+        <h2 class="section-title">In-Person &amp; Online Coaching</h2>
+        <p class="section-text">Structured basketball development, performance training, and fitness coaching with clear pricing, package options, and support.</p>
       </div>
 
       <div class="subsection-head">
@@ -1025,10 +1557,10 @@
         <p>Skill, conditioning, confidence, and game understanding. All levels.</p>
       </div>
 
-      <div class="two-col-grid">
-        <div class="card">
+      <div class="price-card" style="margin-bottom:1.5rem;">
+        <div class="price-card-inner">
           <h3>What It Includes (Depending On The Athlete)</h3>
-          <ul class="detail-list">
+          <ul>
             <li>Shooting mechanics and movement shooting with and without the ball</li>
             <li>Ball handling, coordination &amp; proper footwork</li>
             <li>Finishing and scoring efficiency</li>
@@ -1038,108 +1570,43 @@
             <li>Game-like repetition and learning to play with physicality</li>
           </ul>
         </div>
-
-        <div class="table-card">
-          <h3>Session Pricing</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Session</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>60-Minute Session</td>
-                <td>$65</td>
-              </tr>
-              <tr>
-                <td>Extended 90-Minute Session</td>
-                <td>$90</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
 
-      <div class="two-col-grid" style="margin-top:1.5rem;">
-        <div class="table-card">
-          <h3>Private Basketball Packages — 60-Minute Sessions</h3>
-          <p>All packages expire 60 days from purchase. (Exceptions to the expiration date for injury or personal reasons)</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Price</th>
-                <th>Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>4 Sessions</td>
-                <td>$225</td>
-                <td>Best for busy athletes training 1x weekly</td>
-              </tr>
-              <tr>
-                <td>8 Sessions</td>
-                <td>$425</td>
-                <td>Consistent development and in-season training 1-2x weekly</td>
-              </tr>
-              <tr>
-                <td>12 Sessions</td>
-                <td>$625</td>
-                <td>Serious athletes training 2-3x weekly</td>
-              </tr>
-              <tr>
-                <td>20 Sessions</td>
-                <td>$1,000</td>
-                <td>High-volume offseason development 3-4x weekly</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="table-card">
-          <h3>Extended Private Basketball Packages — 90-Minute Sessions</h3>
-          <p>Higher rep volume, deeper skill work, conditioning, and detailed game IQ breakdowns. 60 day expiration.</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Price</th>
-                <th>Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>4 Sessions</td>
-                <td>$350</td>
-                <td>Extended development and added volume</td>
-              </tr>
-              <tr>
-                <td>8 Sessions</td>
-                <td>$650</td>
-                <td>Consistent high-level development</td>
-              </tr>
-              <tr>
-                <td>12 Sessions</td>
-                <td>$975</td>
-                <td>Serious offseason commitment</td>
-              </tr>
-              <tr>
-                <td>20 Sessions</td>
-                <td>$1,500</td>
-                <td>Elite high-volume development focus</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="pricing-grid">
+        <div class="price-card"><div class="price-card-inner"><h3>60-Minute Session</h3><div class="price-value">$65</div></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>Extended 90-Minute Session</h3><div class="price-value">$90</div></div></div>
       </div>
 
-      <div class="two-col-grid" style="margin-top:1.5rem;">
-        <div class="card">
-          <h3>Package Athlete Benefits</h3>
-          <ul class="benefits-list">
+      <div class="subsection-head">
+        <h3>Private Basketball Packages — 60-Minute Sessions</h3>
+        <p>All packages expire 60 days from purchase. Exceptions to the expiration date for injury or personal reasons.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card"><div class="price-card-inner"><h3>4 Sessions</h3><div class="price-value">$225</div><p class="price-sub">Best for busy athletes training 1x weekly</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>8 Sessions</h3><div class="price-value">$425</div><p class="price-sub">Consistent development and in-season training 1-2x weekly</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>12 Sessions</h3><div class="price-value">$625</div><p class="price-sub">Serious athletes training 2-3x weekly</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>20 Sessions</h3><div class="price-value">$1,000</div><p class="price-sub">High-volume offseason development 3-4x weekly</p></div></div>
+      </div>
+
+      <div class="subsection-head">
+        <h3>Extended Private Basketball Packages — 90-Minute Sessions</h3>
+        <p>Higher rep volume, deeper skill work, conditioning, and detailed game IQ breakdowns. 60 day expiration.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card"><div class="price-card-inner"><h3>4 Sessions</h3><div class="price-value">$350</div><p class="price-sub">Extended development and added volume</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>8 Sessions</h3><div class="price-value">$650</div><p class="price-sub">Consistent high-level development</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>12 Sessions</h3><div class="price-value">$975</div><p class="price-sub">Serious offseason commitment</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>20 Sessions</h3><div class="price-value">$1,500</div><p class="price-sub">Elite high-volume development focus</p></div></div>
+      </div>
+
+      <div class="subsection-head">
+        <h3>Package Athlete Benefits</h3>
+      </div>
+      <div class="price-card" style="margin-bottom:2rem;">
+        <div class="price-card-inner">
+          <ul>
             <li>Strength and conditioning recommendations</li>
             <li>Access to athlete community and Q&amp;A group</li>
             <li>Training guidance and development recommendations</li>
@@ -1153,11 +1620,15 @@
             <li>20 session – 2 days and times reserved per week</li>
           </ul>
         </div>
+      </div>
 
-        <div class="card">
-          <h3>Small Group Training — 2 To 6 Athletes</h3>
-          <div class="price-value">$35 Per Player</div>
-          <ul class="detail-list">
+      <div class="subsection-head">
+        <h3>Small Group Training — 2 To 6 Athletes</h3>
+        <p>$35 per player</p>
+      </div>
+      <div class="price-card" style="margin-bottom:2rem;">
+        <div class="price-card-inner">
+          <ul>
             <li>Game-speed skill application</li>
             <li>Offensive and defensive reads</li>
             <li>Decision-making under pressure</li>
@@ -1167,66 +1638,46 @@
         </div>
       </div>
 
-      <div class="two-col-grid" style="margin-top:1.5rem;">
-        <div class="card">
-          <h3>Team / Large Group Training</h3>
-          <p>Starting at $20 per player for 90-minute sessions. Pricing based on team/group size, session length (2 hours available), and location. Minimum $150.</p>
-          <ul class="detail-list">
+      <div class="subsection-head">
+        <h3>Team / Large Group Training</h3>
+        <p>Starting at $20 per player for 90-minute sessions. Pricing based on team/group size, session length (2 hours available), and location. Minimum $150</p>
+      </div>
+      <div class="price-card" style="margin-bottom:2rem;">
+        <div class="price-card-inner">
+          <ul>
             <li>Skill development and team concepts</li>
             <li>Offensive spacing and defensive rotations</li>
             <li>Practice structure and competitive drills</li>
             <li>Communication and team development</li>
           </ul>
         </div>
-
-        <div class="table-card">
-          <h3>Team / Group Travel Fee</h3>
-          <p>(*May apply for other in-person sessions)</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Distance</th>
-                <th>Areas</th>
-                <th>Fee</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Within 15 miles</td>
-                <td>Coconut Creek area</td>
-                <td>No fee</td>
-              </tr>
-              <tr>
-                <td>15-25 miles</td>
-                <td>Boca Raton, Delray Beach, Fort Lauderdale</td>
-                <td>+ $25</td>
-              </tr>
-              <tr>
-                <td>25-40 miles</td>
-                <td>West Palm Beach, Miami, Davie</td>
-                <td>+ $45</td>
-              </tr>
-              <tr>
-                <td>40+ miles</td>
-                <td>By request</td>
-                <td>Custom</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
 
-      <div class="subsection-head" style="margin-top:3.2rem;">
+      <div class="subsection-head">
+        <h3>Team/Group Travel Fee</h3>
+        <p>May apply for other in-person sessions.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card"><div class="price-card-inner"><h3>Within 15 miles</h3><p class="price-sub">Coconut Creek area</p><div class="price-value">No fee</div></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>15-25 miles</h3><p class="price-sub">Boca Raton, Delray Beach, Fort Lauderdale</p><div class="price-value">+ $25</div></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>25-40 miles</h3><p class="price-sub">West Palm Beach, Miami, Davie</p><div class="price-value">+ $45</div></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>40+ miles</h3><p class="price-sub">By request</p><div class="price-value">Custom</div></div></div>
+      </div>
+
+      <div class="subsection-head">
         <h3>Adult Hybrid Performance Or General Fitness Training</h3>
-        <p>*Limited spots (Travel fee may apply)</p>
+        <p>Limited spots (Travel fee may apply). Strength, conditioning, athleticism, body composition, and general fitness.</p>
       </div>
-
-      <div class="two-col-grid">
-        <div class="card">
-          <div class="price-value">$75</div>
-          <div class="price-sub">60-Minute Session</div>
-          <p>Strength, conditioning, athleticism, body composition, and general fitness.</p>
-          <ul class="detail-list">
+      <div class="pricing-grid">
+        <div class="price-card"><div class="price-card-inner"><h3>60-Minute Session</h3><div class="price-value">$75</div></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>4 Sessions</h3><div class="price-value">$275</div><p class="price-sub">Intro and assessment</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>8 Sessions</h3><div class="price-value">$525</div><p class="price-sub">Consistent development</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>12 Sessions</h3><div class="price-value">$800</div><p class="price-sub">Full transformation cycle</p></div></div>
+        <div class="price-card"><div class="price-card-inner"><h3>20 Sessions</h3><div class="price-value">$1,250</div><p class="price-sub">High commitment development</p></div></div>
+      </div>
+      <div class="price-card" style="margin-bottom:2rem;">
+        <div class="price-card-inner">
+          <ul>
             <li>Strength training and bodybuilding</li>
             <li>Fat loss and conditioning</li>
             <li>Speed, explosiveness, and agility</li>
@@ -1234,117 +1685,89 @@
             <li>Sustainable long-term development</li>
           </ul>
         </div>
-
-        <div class="table-card">
-          <h3>Adult Hybrid / General Fitness Packages</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Price</th>
-                <th>Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>4 Sessions</td>
-                <td>$275</td>
-                <td>Intro and assessment</td>
-              </tr>
-              <tr>
-                <td>8 Sessions</td>
-                <td>$525</td>
-                <td>Consistent development</td>
-              </tr>
-              <tr>
-                <td>12 Sessions</td>
-                <td>$800</td>
-                <td>Full transformation cycle</td>
-              </tr>
-              <tr>
-                <td>20 Sessions</td>
-                <td>$1,250</td>
-                <td>High commitment development</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
 
-      <div class="subsection-head" style="margin-top:3.2rem;">
+      <div class="subsection-head">
         <h3>Online</h3>
       </div>
-
-      <div class="consult-grid">
-        <div class="consult-card">
-          <h3>Basketball Athlete Development Consultation — $100 / 45 Min</h3>
-          <ul class="detail-list">
-            <li>Goal evaluation and what is needed to reach them</li>
-            <li>Game/practice film review</li>
-            <li>Shooting mechanics video review</li>
-            <li>Skill development recommendations based on the athlete</li>
-            <li>Weekly structure and 1-month development outline</li>
-          </ul>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-card-inner">
+            <h3>Basketball Athlete Development Consultation</h3>
+            <div class="price-value">$100 / 45 MIN</div>
+            <ul>
+              <li>Goal evaluation and what is needed to reach them</li>
+              <li>Game/practice film review</li>
+              <li>Shooting mechanics video review</li>
+              <li>Skill development recommendations based on the athlete</li>
+              <li>Weekly structure and 1-month development outline</li>
+            </ul>
+          </div>
         </div>
-
-        <div class="consult-card">
-          <h3>Performance &amp; Fitness Consultation — $100 / 45 Min</h3>
-          <ul class="detail-list">
-            <li>Goal evaluation, what is needed and realistic timeline to reach them</li>
-            <li>Strength and conditioning guidance</li>
-            <li>Hybrid fitness and running guidance</li>
-            <li>Explosiveness (Jump, Sprint, Accelerate) and training planning</li>
-            <li>Weekly structure and 1-month training outline</li>
-          </ul>
+        <div class="price-card">
+          <div class="price-card-inner">
+            <h3>Performance &amp; Fitness Consultation</h3>
+            <div class="price-value">$100 / 45 MIN</div>
+            <ul>
+              <li>Goal evaluation, what is needed and realistic timeline to reach them</li>
+              <li>Strength and conditioning guidance</li>
+              <li>Hybrid fitness and running guidance</li>
+              <li>Explosiveness (Jump, Sprint, Accelerate) and training planning</li>
+              <li>Weekly structure and 1-month training outline</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="subsection-head" id="membership" style="margin-top:3.2rem;">
+      <div class="subsection-head">
         <h3>Policies &amp; FAQ</h3>
       </div>
-
-      <div class="policy-grid">
-        <div class="policy-card">
-          <ul class="policy-list">
-            <li><strong>Cancellation</strong><br>Sessions cancelled under 24 hours may result in loss of session credit. Weather or trainer cancellations are always credited back.</li>
-            <li><strong>Siblings</strong><br>Siblings may share a private session within the same scheduled time.</li>
-            <li><strong>Guests</strong><br>Private clients may bring additional athletes for a small guest fee of $20 per guest. Larger groups may require small group pricing.</li>
-            <li><strong>Packages</strong><br>All packages expire 60 days from purchase date. Package athletes receive additional development support — see Package Athlete Benefits.</li>
-            <li><strong>Teams</strong><br>Team training booked separately. Contact Brian directly for scheduling and pricing.</li>
-            <li><strong>Adult Performance Training</strong><br>Limited spots available. Contact Brian to check availability.</li>
-            <li><strong>Where are sessions held?</strong><br>Private and public outdoor courts in Coconut Creek - Broward County. Location may be subject to change.</li>
-            <li><strong>Are you available to travel?</strong><br>Yes! Contact Brian for travel options and pricing. I will travel anywhere in the U.S.</li>
-            <li>
-              <button type="button" class="inline-mail-link" data-open-contact="general-email">
-                Email for more information and scheduling
-              </button>
-            </li>
-          </ul>
-        </div>
+      <div class="pricing-grid">
+        <div class="policy-card"><h3>Cancellation</h3><ul><li>Sessions cancelled under 24 hours may result in loss of session credit.</li><li>Weather or trainer cancellations are always credited back.</li></ul></div>
+        <div class="policy-card"><h3>Siblings</h3><ul><li>Siblings may share a private session within the same scheduled time.</li></ul></div>
+        <div class="policy-card"><h3>Guests</h3><ul><li>Private clients may bring additional athletes for a small guest fee of $20 per guest.</li><li>Larger groups may require small group pricing.</li></ul></div>
+        <div class="policy-card"><h3>Packages</h3><ul><li>All packages expire 60 days from purchase date.</li><li>Package athletes receive additional development support — see Package Athlete Benefits.</li></ul></div>
+        <div class="policy-card"><h3>Teams</h3><ul><li>Team training booked separately. Contact Brian directly for scheduling and pricing.</li></ul></div>
+        <div class="policy-card"><h3>Adult Performance Training</h3><ul><li>Limited spots available. Contact Brian to check availability.</li></ul></div>
+        <div class="policy-card"><h3>Where are sessions held?</h3><ul><li>Private and public outdoor courts in Coconut Creek - Broward County.</li><li>Location may be subject to change.</li></ul></div>
+        <div class="policy-card"><h3>Are you available to travel?</h3><ul><li>Yes! Contact Brian for travel options and pricing.</li><li>I will travel anywhere in the U.S.</li></ul></div>
       </div>
 
-      <div class="subsection-head" style="margin-top:3.2rem;">
-        <h3>Contact</h3>
+      <div class="note-strip">
+        <strong>BFP Collective</strong> | Basketball &amp; Performance Development Training<br>
+        Train With Intent. Track Progress. Adjust When Needed. | #WhatsNext<br>
+        BFPCollective.com | <a href="mailto:Brian@bfpcollective.com" style="color:#fff;">Brian@bfpcollective.com</a> | 718-887-5723 | Coconut Creek, FL<br>
+        Bernardi Fitness and Performance LLC
       </div>
+    </div>
+  </section>
 
-      <div class="footer-contact-grid">
+  <section class="contact-section section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
         <div class="contact-card">
-          <h3>BFP Collective | Basketball &amp; Performance Development Training</h3>
-          <p>Train With Intent. Track Progress. Adjust When Needed. | #WhatsNext</p>
-          <ul class="contact-list">
-            <li>BFPCollective.com | <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a> | <a href="tel:7188875723">718-887-5723</a> | Coconut Creek, FL</li>
-            <li>Bernardi Fitness and Performance LLC</li>
+          <div class="section-label">Location & Contact</div>
+          <h2 class="section-title">Based In Coconut Creek, FL</h2>
+          <p>
+            Serving Broward County, Boca Raton, and surrounding areas. Travel available for sessions.
+          </p>
+
+          <ul class="contact-list" style="margin-top: 1rem;">
+            <li>Email: <a href="mailto:Brian@bfpcollective.com">Brian@bfpcollective.com</a></li>
+            <li>Phone: <a href="tel:7188875723">718-887-5723</a></li>
           </ul>
         </div>
 
-        <div class="contact-card" id="contact">
-          <h3>Get Started</h3>
-          <p>Choose an option below to contact Brian with a pre-filled inquiry.</p>
+        <div class="contact-card">
+          <div class="section-label">Get Started</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: .4rem;">Ready to train with structure and purpose?</h3>
+          <p>Choose an option below to contact <span style="color:#273b92;">BFP</span> Collective with a pre-filled inquiry.</p>
+
           <ul class="contact-action-list">
             <li><button type="button" class="contact-action-button" data-open-contact="book-session">Book a Session</button></li>
-            <li><button type="button" class="contact-action-button" data-open-contact="general-email">Email for more information and scheduling</button></li>
+            <li><button type="button" class="contact-action-button" data-open-contact="membership">Apply for Membership</button></li>
             <li><button type="button" class="contact-action-button" data-open-contact="team-training">Contact for Team Training</button></li>
-            <li><button type="button" class="contact-action-button" data-open-contact="adult-performance">Adult Performance Inquiry</button></li>
+            <li><button type="button" class="contact-action-button" data-open-contact="general-email">Email for more information and scheduling</button></li>
           </ul>
         </div>
       </div>
@@ -1364,195 +1787,212 @@
   </a>
 
   <div class="contact-modal" id="contactModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-top">
         <div class="modal-title">
-          <h3 id="modalHeading">Contact <span style="color:#8fa2f0;">BFP</span> Collective</h3>
-          <p>Complete the fields below and choose how you want to contact Brian.</p>
+          <h3 id="modalTitle">Contact BFP Collective</h3>
+          <p id="modalDescription">Use the form below to send a message or open your email app with a pre-filled subject line.</p>
         </div>
-        <button type="button" class="modal-close" id="closeModalBtn" aria-label="Close contact form">×</button>
+        <button class="modal-close" type="button" aria-label="Close contact form">&times;</button>
       </div>
 
       <form id="contactForm">
         <div class="modal-grid">
           <div class="field">
-            <label for="clientName">Name</label>
-            <input type="text" id="clientName" placeholder="Your name" />
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
           </div>
 
           <div class="field">
-            <label for="clientEmail">Email</label>
-            <input type="email" id="clientEmail" placeholder="Your email" />
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
           </div>
 
           <div class="field">
-            <label for="clientPhone">Phone</label>
-            <input type="text" id="clientPhone" placeholder="Your phone number" />
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="Best phone number">
           </div>
 
           <div class="field">
-            <label for="clientAddress">Address / Area</label>
-            <input type="text" id="clientAddress" placeholder="City, area, or address" />
+            <label for="goal">Training Type</label>
+            <select id="goal" name="goal">
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Basketball Training">Basketball Training</option>
+              <option value="Performance / Fitness Training">Performance / Fitness Training</option>
+              <option value="Membership Inquiry">Membership Inquiry</option>
+              <option value="Team Training">Team Training</option>
+            </select>
           </div>
 
           <div class="field full">
-            <label for="clientMessage">Message</label>
-            <textarea id="clientMessage"></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell Brian about your goals, schedule, age/level, and the kind of training you are looking for."></textarea>
           </div>
         </div>
 
         <div class="modal-actions">
-          <button type="button" class="modal-btn primary" id="emailActionBtn">Email</button>
-
-          <button type="button" class="modal-btn whatsapp" id="whatsappActionBtn">
-            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor">
-              <path d="M19.05 4.94A9.94 9.94 0 0 0 12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.76.46 3.48 1.33 5L2 22l5.13-1.34A9.96 9.96 0 0 0 12.02 22C17.54 22 22 17.52 22 12c0-2.65-1.03-5.14-2.95-7.06zm-7.03 15.37a8.3 8.3 0 0 1-4.23-1.16l-.3-.18-3.04.8.81-2.97-.2-.31a8.28 8.28 0 0 1-1.27-4.43c0-4.57 3.72-8.29 8.3-8.29 2.22 0 4.31.86 5.88 2.43A8.25 8.25 0 0 1 20.3 12c0 4.58-3.72 8.31-8.28 8.31zm4.55-6.21c-.25-.13-1.5-.74-1.73-.82-.23-.08-.4-.13-.57.12-.16.25-.65.82-.79.99-.14.16-.29.19-.54.06-.25-.13-1.04-.38-1.99-1.21-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.12-.12.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.13-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.12.16 1.75 2.67 4.24 3.74.59.25 1.06.4 1.42.51.6.19 1.14.16 1.57.1.48-.07 1.5-.61 1.71-1.19.21-.58.21-1.08.14-1.19-.06-.11-.23-.18-.48-.31z"/>
-            </svg>
-            WhatsApp
-          </button>
-
-          <button type="button" class="modal-btn secondary" id="callActionBtn">
-            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8.03 9.97a16 16 0 0 0 6 6l1.52-1.26a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            Call
-          </button>
+          <button type="submit" class="modal-btn primary">Open Email Draft</button>
+          <button type="button" class="modal-btn secondary" id="copyEmailBtn">Copy Email</button>
+          <a
+            class="modal-btn whatsapp"
+            id="modalWhatsappBtn"
+            href="https://wa.me/17188875723"
+            target="_blank"
+            rel="noopener noreferrer"
+          >WhatsApp</a>
         </div>
 
         <p class="helper-note">
-          The message is editable so the client can keep the template or adjust it before contacting <span style="color:#8fa2f0;">BFP</span> Collective.
+          This form opens your default email app with a pre-filled message to Brian@bfpcollective.com.
         </p>
       </form>
     </div>
   </div>
 
   <footer>
-    © 2026 <span style="color:#8fa2f0;">BFP</span> Collective. All rights reserved.
+    BFP Collective &mdash; Basketball Training, Performance Coaching, Personal Training, and Online Support.
   </footer>
 
   <script>
-    const BFP_EMAIL = "Brian@bfpcollective.com";
-    const BFP_PHONE = "17188875723";
+    const slides = document.querySelectorAll('.pricing-slide');
+    let currentSlide = 0;
 
-    const defaultTemplate = `Hi Brian,
+    if (slides.length) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 4500);
+    }
 
-I’d like more information about training and scheduling with BFP Collective.
+    const modal = document.getElementById('contactModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const contactForm = document.getElementById('contactForm');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+    const closeBtn = document.querySelector('.modal-close');
 
-I’m interested in:
-My goals:
-Preferred training format:
-Preferred schedule:
-Questions:
-
-Thank you.`;
-
-    const inquiryTemplates = {
-      "book-session": {
-        title: "Book a Session",
-        subject: "Book a Session - BFP Collective",
-        message: defaultTemplate
+    const inquiryPresets = {
+      'book-session': {
+        title: 'Book a Session',
+        subject: 'Training Session Inquiry - BFP Collective',
+        description: 'Tell Brian what type of session you are looking for, your goals, and your availability.',
+        trainingType: 'Basketball Training',
+        message: 'Hi Brian,%0D%0A%0D%0AI’d like to book a training session with BFP Collective.%0D%0A%0D%0AMy goals:%0D%0AMy availability:%0D%0AAge / level:%0D%0A%0D%0AThank you.'
       },
-      "general-email": {
-        title: "Training Inquiry",
-        subject: "Training Inquiry - BFP Collective",
-        message: defaultTemplate
+      'membership': {
+        title: 'Apply for Membership',
+        subject: 'Membership Inquiry - BFP Collective',
+        description: 'Share your training goals, current level, and what membership option you are interested in.',
+        trainingType: 'Membership Inquiry',
+        message: 'Hi Brian,%0D%0A%0D%0AI’m interested in learning more about membership options with BFP Collective.%0D%0A%0D%0AMy goals:%0D%0ACurrent level:%0D%0APreferred training frequency:%0D%0A%0D%0AThank you.'
       },
-      "team-training": {
-        title: "Team Training Inquiry",
-        subject: "Team Training Inquiry - BFP Collective",
-        message: defaultTemplate
+      'team-training': {
+        title: 'Team Training Inquiry',
+        subject: 'Team Training Inquiry - BFP Collective',
+        description: 'Provide your team size, age group, location, and preferred training details.',
+        trainingType: 'Team Training',
+        message: 'Hi Brian,%0D%0A%0D%0AI’m interested in team / group training.%0D%0A%0D%0ATeam or group size:%0D%0AAge group:%0D%0ALocation:%0D%0APreferred dates:%0D%0A%0D%0AThank you.'
       },
-      "adult-performance": {
-        title: "Adult Performance Inquiry",
-        subject: "Adult Performance Inquiry - BFP Collective",
-        message: defaultTemplate
+      'general-email': {
+        title: 'General Inquiry',
+        subject: 'General Inquiry - BFP Collective',
+        description: 'Ask a question about training, scheduling, pricing, travel, or availability.',
+        trainingType: 'General Inquiry',
+        message: 'Hi Brian,%0D%0A%0D%0AI’d like more information about training and scheduling with BFP Collective.%0D%0A%0D%0AThank you.'
       }
     };
 
-    const modal = document.getElementById("contactModal");
-    const modalHeading = document.getElementById("modalHeading");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const emailActionBtn = document.getElementById("emailActionBtn");
-    const whatsappActionBtn = document.getElementById("whatsappActionBtn");
-    const callActionBtn = document.getElementById("callActionBtn");
+    let currentPreset = inquiryPresets['general-email'];
 
-    const clientName = document.getElementById("clientName");
-    const clientEmail = document.getElementById("clientEmail");
-    const clientPhone = document.getElementById("clientPhone");
-    const clientAddress = document.getElementById("clientAddress");
-    const clientMessage = document.getElementById("clientMessage");
-
-    let activeInquiry = inquiryTemplates["general-email"];
-
-    function openModal(type) {
-      activeInquiry = inquiryTemplates[type] || inquiryTemplates["general-email"];
-      modalHeading.innerHTML = activeInquiry.title.replaceAll("BFP", "<span style='color:#8fa2f0;'>BFP</span>");
-      clientMessage.value = activeInquiry.message;
-      modal.classList.add("active");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("modal-open");
+    function openModal(presetKey) {
+      currentPreset = inquiryPresets[presetKey] || inquiryPresets['general-email'];
+      modalTitle.textContent = currentPreset.title;
+      modalDescription.textContent = currentPreset.description;
+      document.getElementById('goal').value = currentPreset.trainingType;
+      document.getElementById('message').value = decodeURIComponent(currentPreset.message.replace(/\+/g, ' '));
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
     }
 
     function closeModal() {
-      modal.classList.remove("active");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("modal-open");
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
     }
 
-    function buildFullMessage() {
-      const details = [];
-      if (clientName.value.trim()) details.push("Name: " + clientName.value.trim());
-      if (clientEmail.value.trim()) details.push("Email: " + clientEmail.value.trim());
-      if (clientPhone.value.trim()) details.push("Phone: " + clientPhone.value.trim());
-      if (clientAddress.value.trim()) details.push("Address/Area: " + clientAddress.value.trim());
-
-      const infoBlock = details.length ? "\n\n" + details.join("\n") : "";
-      return (clientMessage.value || activeInquiry.message) + infoBlock;
-    }
-
-    document.querySelectorAll("[data-open-contact]").forEach(button => {
-      button.addEventListener("click", () => {
-        openModal(button.getAttribute("data-open-contact"));
-      });
+    document.querySelectorAll('[data-open-contact]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-contact')));
     });
 
-    closeModalBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener('click', closeModal);
 
-    modal.addEventListener("click", (e) => {
+    modal.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
     });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
     });
 
-    emailActionBtn.addEventListener("click", () => {
-      const subject = encodeURIComponent(activeInquiry.subject);
-      const body = encodeURIComponent(buildFullMessage());
-      window.location.href = `mailto:${BFP_EMAIL}?subject=${subject}&body=${body}`;
-    });
+    function buildMailto() {
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const email = encodeURIComponent(document.getElementById('email').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const goal = encodeURIComponent(document.getElementById('goal').value || '');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
 
-    whatsappActionBtn.addEventListener("click", () => {
-      const message = encodeURIComponent(buildFullMessage());
-      window.open(`https://wa.me/${BFP_PHONE}?text=${message}`, "_blank", "noopener,noreferrer");
-    });
+      const body =
+        `Name: ${decodeURIComponent(name)}\n` +
+        `Email: ${decodeURIComponent(email)}\n` +
+        `Phone: ${decodeURIComponent(phone)}\n` +
+        `Training Type: ${decodeURIComponent(goal)}\n\n` +
+        `${decodeURIComponent(message)}`;
 
-    callActionBtn.addEventListener("click", () => {
-      window.location.href = `tel:${BFP_PHONE}`;
-    });
-
-    const slides = document.querySelectorAll(".pricing-slide");
-    let slideIndex = 0;
-
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[slideIndex].classList.remove("active");
-        slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].classList.add("active");
-      }, 5000);
+      return `mailto:Brian@bfpcollective.com?subject=${encodeURIComponent(currentPreset.subject)}&body=${encodeURIComponent(body)}`;
     }
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = buildMailto();
+    });
+
+    copyEmailBtn.addEventListener('click', async () => {
+      const bodyText =
+        `To: Brian@bfpcollective.com\nSubject: ${currentPreset.subject}\n\n` +
+        `Name: ${document.getElementById('name').value}\n` +
+        `Email: ${document.getElementById('email').value}\n` +
+        `Phone: ${document.getElementById('phone').value}\n` +
+        `Training Type: ${document.getElementById('goal').value}\n\n` +
+        `${document.getElementById('message').value}`;
+
+      try {
+        await navigator.clipboard.writeText(bodyText);
+        copyEmailBtn.textContent = 'Copied';
+        setTimeout(() => copyEmailBtn.textContent = 'Copy Email', 1600);
+      } catch (err) {
+        copyEmailBtn.textContent = 'Copy Failed';
+        setTimeout(() => copyEmailBtn.textContent = 'Copy Email', 1600);
+      }
+    });
+
+    function updateWhatsappLink() {
+      const msg =
+        `Hi Brian, my name is ${document.getElementById('name').value || ''}. ` +
+        `I’m interested in ${document.getElementById('goal').value || 'training'} with BFP Collective. ` +
+        `${document.getElementById('message').value || ''}`;
+      modalWhatsappBtn.href = `https://wa.me/17188875723?text=${encodeURIComponent(msg)}`;
+    }
+
+    ['name', 'goal', 'message'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateWhatsappLink);
+    });
+
+    updateWhatsappLink();
   </script>
 </body>
 </html>
